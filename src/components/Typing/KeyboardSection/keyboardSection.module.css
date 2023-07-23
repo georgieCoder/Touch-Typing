@@ -1,0 +1,15 @@
+.keyboardSection {
+    display: flex;
+}
+
+.leftHandWrapper {
+    order: 1;
+}
+
+.rightHandWrapper {
+    order: 3
+}
+
+.keyboardWrapper {
+    order: 2;
+}

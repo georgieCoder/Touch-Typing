@@ -1,0 +1,9 @@
+.typingFieldSection {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.typingFieldWrapper {
+    margin-top: 2px;
+}

@@ -1,0 +1,49 @@
+.typingField {
+    display: flex;
+    border: 7px solid #99b4d1;
+    background: #e3e6e9;
+    color: #333;
+    border-radius: 14px;
+    box-shadow: 1px 1px 8px 0 rgba(0,0,0,.2);
+    font: normal 56px/70px Courier New,Fallback Courier New,monospace,serif;
+    height: 82px;
+    letter-spacing: 0;
+    overflow: hidden;
+    width: 100%;
+    vertical-align: middle;
+}
+
+
+.segment {
+    display: inline-block;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: pre;
+    flex: 0 1 100%;
+}
+
+.introduce {
+    text-align: center;
+    padding: 0 0 0 20px;
+}
+
+.passed {
+    position: relative;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    color: #cbc9cd;
+}
+
+.passed span {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+.coming {
+    background: #fff;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: left;
+}

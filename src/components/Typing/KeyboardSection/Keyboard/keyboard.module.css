@@ -1,0 +1,118 @@
+.keyboardPanelWrapper {
+    width: 640px;
+}
+
+.keyboardPanel {
+    border-radius: 6px;
+    box-shadow: 1px 1px 8px 0 rgba(0,0,0,.2);
+    margin: 0 auto;
+    background-color: #99b4d1;
+    padding: 9px;
+}
+
+.keyboardRow {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2px;
+}
+
+.keyboardRow:last-of-type {
+    margin: 0;
+}
+
+.keyboardKey {
+    border: 1px solid #4d5a68;
+    border-radius: 4px;
+    color: #000;
+    font: normal 20px/31px Courier New,Fallback Courier New,monospace,serif;
+    height: 33px;
+    text-align: center;
+}
+
+.keyboardKey.smaller {
+    width: 40px;
+}
+
+.keyboardKey.small {
+    width: 50px;
+}
+
+.keyboardKey.medium {
+    width: 55px;
+}
+
+.keyboardKey.big {
+    width: 78px;
+}
+
+.keyboardKey.bigger {
+    width: 97px;
+}
+
+.keyboardKey.large {
+    width: 255px;
+}
+
+.littleFinger.right {
+    background-color: #ade3b0;
+}
+
+.littleFinger.left {
+    background-color: #e1afae;
+}
+
+.ringFinger.right {
+    background-color: #e2e0ad;
+}
+
+.ringFinger.left {
+    background-color: #e2e0ad;
+}
+
+.middleFinger.right {
+    background-color: #e1afae;
+}
+
+.middleFinger.left {
+    background-color: #ade3b0;
+}
+
+.foreFinger.right {
+    background-color: #dfade2;
+}
+
+.foreFinger.left {
+    background-color: #ade2de;
+}
+
+.thumb {
+    background-color: #e1afae;
+}
+
+.uncertain {
+    background-color: #d7d7d7;
+    color: #656563;
+    line-height: 33px;
+    font-size: 12px;
+}
+
+.uncertain.left {
+    padding-left: 5px;
+    text-align: left;
+}
+
+.uncertain.right {
+    padding-right: 5px;
+    text-align: right;
+}
+
+.keyboardKey.uncertain.Alt,
+.keyboardKey.uncertain.Cmd,
+.keyboardKey.uncertain.Menu {
+    padding: 0;
+    text-align: center;
+}
+
+.keyboardKey.active {
+    background-color: red;
+}    

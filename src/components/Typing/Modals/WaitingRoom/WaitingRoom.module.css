@@ -1,0 +1,45 @@
+.waitingWrapper {
+    width: 500px;
+    position: fixed;
+    left: 50%;
+    margin-left: -250px;
+    top: 10%;
+}
+
+.waitingHeader {
+    padding: 9px 15px;
+}
+
+.waitingHeader h3 {
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.waitingContent {
+    padding: 15px 30px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.waitingContent p {
+    margin: 0 0 12px;
+    color: #444;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+.waitingContent i {
+    float: right;
+    text-align: right;
+}
+
+.waitingFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 15px;
+}

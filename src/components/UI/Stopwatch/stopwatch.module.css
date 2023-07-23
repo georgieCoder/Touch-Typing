@@ -1,0 +1,13 @@
+.stopwatch {
+    display: inline-block;
+    border: 3px solid #99b4d1;
+    border-radius: 10px;
+    box-shadow: 1px 1px 8px 0 rgba(0,0,0,.2);
+    background-color: #fff;
+    color: #333;
+    font: 700 16px Tahoma,Arial,Helvetica,sans-serif;
+    letter-spacing: 1px;
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+}

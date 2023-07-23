@@ -1,0 +1,87 @@
+.keyboardHand {
+    background: url(../../../../img/hands/hands.png) no-repeat 0 0;
+    height: 190px;
+    margin: 0;
+    position: relative;
+    width: 190px;
+}
+
+.keyboardHand::before {
+    content: '';
+    display: none;
+    background: rgba(220,14,14,.9);
+    border-radius: 50%;
+    box-shadow: 1px 1px 8px 0 rgba(0,0,0,.2);
+    float: none;
+    height: 10px;
+    position: absolute;
+    width: 10px;
+}
+
+.left {
+    background-position: 0 0;
+}
+
+.left.littleFinger::before {
+    display: inline-block;
+    left: 50px;
+    top: 102px;
+}
+
+.left.ringFinger::before {
+    display: inline-block;
+    left: 66px;
+    top: 89px;
+}
+
+.left.middleFinger::before {
+    display: inline-block;
+    left: 85px;
+    top: 82px;
+}
+
+.left.foreFinger::before {
+    display: inline-block;
+    left: 104px;
+    top: 84px;
+}
+
+.left.thumb::before {
+    display: inline-block;
+    left: 118px;
+    top: 125px;
+}
+
+.right {
+    background-position: -190px 0;
+}
+
+.right.littleFinger::before {
+    display: inline-block;
+    left: 130px;
+    top: 102px;
+}
+
+.right.ringFinger::before {
+    display: inline-block;
+    left: 115px;
+    top: 89px;
+}
+
+.right.middleFinger::before {
+    display: inline-block;
+    left: 96px;
+    top: 82px;
+}
+
+.right.foreFinger::before {
+    display: inline-block;
+    left: 76px;
+    top: 84px;
+}
+
+.right.thumb::before {
+    display: inline-block;
+    left: 61px;
+    top: 125px;
+}
