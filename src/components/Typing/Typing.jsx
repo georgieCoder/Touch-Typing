@@ -20,7 +20,6 @@ const Typing = ({keyboardLayout, text, lengthLimit}) => {
         return () => {
           dispatch(resetTyping());
           dispatch(resetKeyboard());
-          
         }
       }, [])
 

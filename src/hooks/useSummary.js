@@ -8,6 +8,7 @@ export const useSummary = () => {
     useEffect(() => {
         if (!typing.started && typing.wasOnceStarted) {
             if (typing.waitingTime <= 0) {
+                console.log('show summary')
                 setShowSummary(true);
             } else {
                 setShowSummary(!typing.wasWrong);

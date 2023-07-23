@@ -2,8 +2,11 @@ import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { 
     correctKeystroke, incorrectKeystroke, 
+    increaseTimeLimit, 
+    increaseWaitingTime, 
     startTyping, stopTyping, updateVisibleText 
 } from "../store/reducers/typingSlice";
+import { toggleHands, toggleKeyboard } from "../store/reducers/keyboardSlice";
 
 export const useTypingListener = () => {
     const dispatch = useDispatch();
@@ -31,7 +34,7 @@ export const useTypingListener = () => {
                     if (typing.wasCorrect && !typing.wasWrong) {
                         dispatch(incorrectKeystroke());
                     }
-                    if (typing.waitingTime > 0) {
+                    if (typing.waitingTime > 0 && typing.wasCorrect) {
                         dispatch(stopTyping());
                     }
                     break;
@@ -41,6 +44,21 @@ export const useTypingListener = () => {
                 dispatch(startTyping());
                 dispatch(updateVisibleText());
             }
+        }
+
+        switch (e.key) {
+            case "F1":
+                dispatch(toggleKeyboard());
+                break;
+            case "F2":
+                dispatch(toggleHands());
+                break;
+            case "F3":
+                dispatch(increaseTimeLimit());
+                break;
+            case "F4":
+                dispatch(increaseWaitingTime());
+                break;
         }
     }, [typing.started, typing.currentLetter, typing.countCorrectKeys, typing.wasCorrect, typing.wasWrong, typing.timeOnLimit, typing.waitingTime])
 

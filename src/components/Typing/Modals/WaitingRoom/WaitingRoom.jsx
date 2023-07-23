@@ -17,11 +17,19 @@ const WaitingRoom = () => {
   const typingStore = useSelector(store => store.typing);
   const [leftWaitingTime, setLeftWaitingTime] = useState(0);
 
+  const handleWaitingRoom = (e) => {
+    e.preventDefault();
+    e.key === " " && dispatch(startTyping())
+  }
+
   useEffect(() => {
     if (leftWaitingTime <= 0) {
+      visible && window.addEventListener('keydown', handleWaitingRoom);
       clearInterval(interval.current);
     }
-  }, [leftWaitingTime]);
+
+    return () => window.removeEventListener('keydown', handleWaitingRoom);
+  }, [leftWaitingTime, visible]);
 
   useEffect(() => {
     if (visible) {

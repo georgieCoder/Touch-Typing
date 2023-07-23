@@ -37,17 +37,11 @@ const keyboardSlice = createSlice({
             })
         },
 
-        showHands(state) {
-            state.handsVisible = true;
+        toggleHands(state) {
+            state.handsVisible = !state.handsVisible;
         },
-        showKeyboard(state) {
-            state.keyboardVisible = true;
-        },
-        hideHands(state) {
-            state.handsVisible = false;
-        },
-        hideKeyboard(state) {
-            state.keyboardVisible = false;
+        toggleKeyboard(state) {
+            state.keyboardVisible = !state.keyboardVisible;
         }
      }
 });
@@ -57,8 +51,6 @@ export const {
         resetKeyboard,
         setKeyboardLayout,
         setRequiredPresses,
-        showHands,
-        showKeyboard,
-        hideHands,
-        hideKeyboard
-             } = keyboardSlice.actions;
+        toggleHands,
+        toggleKeyboard
+            } = keyboardSlice.actions;

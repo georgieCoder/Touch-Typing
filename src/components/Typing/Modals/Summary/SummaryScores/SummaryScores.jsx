@@ -22,7 +22,7 @@ const SummaryScores = () => {
         />
         <SummaryScore 
             title = 'Набрано' 
-            value = {timeToString(minutes, seconds)}
+            value = {typing.countCorrectKeys}
             measure='зн'
             icon = {iconKeyboard}
         />

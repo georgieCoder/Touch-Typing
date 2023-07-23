@@ -6,60 +6,84 @@
     padding: 0 10px;
 }
 
-.typingControl__info {
+.info {
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
     font-size: 14px;
     line-height: 20px;
     vertical-align: middle;
 }
 
-.typingControl__info span {
+.info span {
     font-weight: 700;
     cursor: pointer;
 }
 
-.typingControl__modes {
-    display: flex;
-    padding: 0 -4px;
-
-}
-
-.typingControl__mode {
-    margin: 0 4px;
-    cursor: pointer;
+.modes {
+    margin: 0 10px 0 0;
 }
 
 .mode {
-    position: relative;
-    display: flex;
-    align-items: center;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 2px;
+    vertical-align: center;
 }
 
-.mode.disabled::before {
-    content: '';
-    position: absolute;
-    height: 10px;
-    width: 10px;
-    background-image: url('../../../../img/icons/cross.png');
-    background-size: cover;
-    top: 0;
-    right: -3px;
+.mode:last-of-type {
+    margin: 0;
+}
+
+.icon {
+    background: url('../../../../img/icons/icons.png') no-repeat 100% 100%;
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    top: -0.5px;
+    vertical-align: top;
+}
+
+.icon.keyboard {
+    background-position: 0 0;
+    width: 32px;
+}
+
+.icon.hands {
+    background-position: -68px 0;
+    width: 33px;
+}
+
+.icon.timeLimit {
+    background-position: -204px 0;
+    width: 20px;
+}
+
+.icon.waitingTime {
+    background-position: -136px 0;
+    width: 32px;
+}
+
+.mode.disabled .icon.keyboard {
+    background-position: -34px 0;
+    width: 32px;
+}
+
+.mode.disabled .icon.hands {
+    background-position: -102px 0;
+    width: 33px;
+}
+
+.mode.disabled .icon.waitingTime {
+    background-position: -170px 0;
+    width: 34px;
 }
 
 .mode span {
-    display: inline-block;
-    margin: 0 0 0 3px;
+    user-select: none;
+    color: #fff;
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
     font-size: 16px;
     font-weight: 700;
-}
-
-.mode__icon {
-    display: flex;
-    aspect-ratio: 1;
-    max-height: 18px;
-}
-
-.mode__icon img {
-    flex: 1 1 100%;
+    display: inline-block;
+    line-height: 20px;
+    vertical-align: top;
 }

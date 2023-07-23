@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 export const useWaitingRoom = () => {
     const typing = useSelector(store => store.typing);
-    const dispatch = useDispatch();
     const [showWaitingRoom, setShowWaitingRoom] = useState(false);
 
     useEffect(() => {

@@ -1,20 +1,19 @@
 import React, { useEffect, useRef }  from 'react';
-import keyboardHint from '../../../../img/icons/keyboard-hint.png';
-import hands from '../../../../img/icons/hand.png';
-import timer from '../../../../img/icons/timer.png';
-import punish from '../../../../img/icons/punish.png';
 import styles from './typingControl.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { increaseTimeLimit, increaseWaitingTime, stopTyping } from '../../../../store/reducers/typingSlice';
-import { hideHands, showHands, hideKeyboard, showKeyboard } from '../../../../store/reducers/keyboardSlice';
+import { toggleKeyboard, toggleHands } from '../../../../store/reducers/keyboardSlice';
 
 const TypingControl = () => {
   const dispatch = useDispatch();
   const {timeLimit, waitingTime} = useSelector(store => store.typing);
   const {handsVisible, keyboardVisible} = useSelector(store => store.keyboard);
+
   const handsControl = useRef();
   const keyboardControl = useRef();
   const waitingTimeControl = useRef();
+
+  
 
   useEffect(() => {
     if (waitingTime <= 0) {
@@ -24,76 +23,76 @@ const TypingControl = () => {
     }
   }, [waitingTime])
 
-  const toggleHands = () => {
-    if (handsVisible) {
-        dispatch(hideHands());
-        handsControl.current.classList.add(styles.disabled)
+  useEffect(() => {
+    if (!handsVisible) {
+      handsControl.current.classList.add(styles.disabled);
     } else {
-        dispatch(showHands());
-        handsControl.current.classList.remove(styles.disabled)
+      handsControl.current.classList.remove(styles.disabled);
     }
-  }
+  }, [handsVisible])
 
-  const toggleKeyboard = () => {
-    if (keyboardVisible) {
-        dispatch(hideKeyboard());
-        keyboardControl.current.classList.add(styles.disabled)
+  useEffect(() => {
+    if (!keyboardVisible) {
+      keyboardControl.current.classList.add(styles.disabled);
     } else {
-        dispatch(showKeyboard());
-        keyboardControl.current.classList.remove(styles.disabled)
+      keyboardControl.current.classList.remove(styles.disabled);
     }
-  }
+  }, [keyboardVisible])
 
   return (
     <div className={styles.typingControl}>
-        <div className={styles.typingControl__info}>
+        <div className={styles.info}>
           Русская раскладка |&nbsp;
           <span onClick={() => dispatch(stopTyping())}>
             пауза
           </span>
         </div>
 
-        <div className={styles.typingControl__modes}>
-          <div className={`${styles.typingControl__mode} ${styles.mode}`}
-            onClick={() => toggleKeyboard()}
+        <div className={styles.modes}>
+          <a href='#' 
+            data-hint={true} 
+            title='[F1] Скрыть клавиатуру'
+            className={styles.mode}
+            onClick={() => dispatch(toggleKeyboard())}
             ref={keyboardControl}
           >
-              <div className={styles.mode__icon}>
-                <img src={keyboardHint} alt='keyboard'/>
-              </div>
-          </div>
+                <i className={[styles.icon, styles.keyboard].join(' ')}></i>
+          </a>
 
-          <div className={`${styles.typingControl__mode} ${styles.mode}`}
-            onClick={() => toggleHands()}
+          <a href='#' 
+            data-hint={true} 
+            title='[F2] Скрыть руки'
+            className={styles.mode}
+            onClick={() => dispatch(toggleHands())}
             ref={handsControl}
           >
-              <div className={styles.mode__icon}>
-                <img src={hands} alt='hand'/>
-              </div>
-          </div>
+                <i className={[styles.icon, styles.hands].join(' ')}></i>
+          </a>
 
-          <div className={`${styles.typingControl__mode} ${styles.mode}`}
+          <a href='#' 
+            data-hint={true}
+            title='[F3] Время автоматической остановки' 
+            className={styles.mode}
             onClick={() => dispatch(increaseTimeLimit())}
           >
-              <div className={styles.mode__icon}>
-                <img  src={timer} alt='timer'/>
-              </div>
-              <span>{timeLimit / 60}</span>
-          </div>
+                <i className={[styles.icon, styles.timeLimit].join(' ')}></i>
+                <span>{timeLimit / 60}</span>
+          </a>
           
-          <div className={`${styles.typingControl__mode} ${styles.mode}`}
+          <a href='#' 
+            data-hint={true} 
+            title='[F4] Режим "Железные нервы"'
+            className={styles.mode}
             onClick={() => dispatch(increaseWaitingTime())}
             ref={waitingTimeControl}
           >
-              <div className={styles.mode__icon}>
-                <img src={punish} alt='punish'/>
-              </div>
-              {
-                waitingTime > 0
-                &&
-                <span>{waitingTime}</span>
-              }
-          </div>
+                <i className={[styles.icon, styles.waitingTime].join(' ')}></i>
+                {
+                    waitingTime > 0
+                    &&
+                    <span>{waitingTime}</span>
+                }
+          </a>
         </div>
       </div>
   )
